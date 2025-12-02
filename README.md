@@ -1,1 +1,1 @@
-# ksnctf
+# ctf-writeups
