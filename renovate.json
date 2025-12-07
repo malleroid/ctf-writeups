@@ -4,9 +4,12 @@
     "config:best-practices",
     ":semanticCommits"
   ],
-  "regexManagers": [
+  "customManagers": [
     {
-      "fileMatch": ["^Dockerfile$"],
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^Dockerfile$/"
+      ],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)\\s+ARG \\S+_VERSION=(?<currentValue>.*)"
       ]
@@ -14,10 +17,14 @@
   ],
   "packageRules": [
     {
-      "matchDatasources": ["crate"],
+      "matchDatasources": [
+        "crate"
+      ],
       "groupName": "mdbook and plugins",
-      "matchPackagePatterns": ["^mdbook"],
-      "automerge": false
+      "automerge": false,
+      "matchPackageNames": [
+        "/^mdbook/"
+      ]
     }
   ],
   "labels": [
