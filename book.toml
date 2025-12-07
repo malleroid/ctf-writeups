@@ -1,0 +1,21 @@
+[book]
+authors = ["malleroid"]
+language = "ja"
+src = "src"
+title = "CTF Writeups"
+
+[build]
+build-dir = "book"
+
+[output.html]
+site-url = "/ctf-writeups/"
+git-repository-url = "https://github.com/malleroid/ctf-writeups"
+edit-url-template = "https://github.com/malleroid/ctf-writeups/edit/main/{path}"
+admonitions = true
+input-404 = "404.md"
+no-section-label = false
+
+# ===== plugins =====
+
+[preprocessor.mermaid]
+command = "mdbook-mermaid"
