@@ -1,0 +1,8 @@
+services:
+  mdbook:
+    build: .
+    container_name: mdbook
+    volumes:
+      - .:/book
+    ports:
+      - "3000:3000"
