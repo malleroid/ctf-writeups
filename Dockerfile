@@ -26,5 +26,3 @@ CMD ["mdbook", "serve", "--hostname", "0.0.0.0"]
 FROM builder AS ci-builder
 
 WORKDIR /data
-
-RUN mdbook-mermaid install .

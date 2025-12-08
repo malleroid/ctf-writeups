@@ -23,7 +23,7 @@ jobs:
       - name: Build with Docker
         run: |
           docker build --target ci-builder -t mdbook-builder .
-          docker run --rm -v ${{ github.workspace }}:/data mdbook-builder mdbook build
+          docker run --rm -v ${{ github.workspace }}:/data mdbook-builder sh -c "mdbook-mermaid install . && mdbook build"
 
       - name: Check build output
         run: |
