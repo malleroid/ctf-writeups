@@ -10,6 +10,7 @@ on:
       - 'Dockerfile'
       - '.github/workflows/ci.yaml'
       - '.github/workflows/deploy.yaml'
+      - '.github/actions/build-mdbook/**'
   workflow_dispatch:
 
 permissions:
