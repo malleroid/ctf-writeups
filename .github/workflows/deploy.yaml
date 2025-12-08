@@ -4,6 +4,12 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'src/**'
+      - 'book.toml'
+      - 'Dockerfile'
+      - '.github/workflows/ci.yaml'
+      - '.github/workflows/deploy.yaml'
   workflow_dispatch:
 
 permissions:
