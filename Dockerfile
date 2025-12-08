@@ -1,8 +1,5 @@
 FROM rust:alpine
 
-# Install build dependencies
-# RUN apk add --no-cache musl-dev gcc
-
 # renovate: datasource=crate depName=mdbook
 ARG MDBOOK_VERSION=0.5.1
 
@@ -11,7 +8,7 @@ ARG MDBOOK_VERSION=0.5.1
 ARG MDBOOK_MERMAID_VERSION=0.17.0
 
 RUN cargo install mdbook --version "${MDBOOK_VERSION}" --locked \
- && cargo install mdbook-mermaid   --version "${MDBOOK_MERMAID_VERSION}" --locked
+  && cargo install mdbook-mermaid   --version "${MDBOOK_MERMAID_VERSION}" --locked
 
 WORKDIR /book
 
