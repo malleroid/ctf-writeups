@@ -7,8 +7,16 @@ ARG MDBOOK_VERSION=0.5.1
 # renovate: datasource=crate depName=mdbook-mermaid
 ARG MDBOOK_MERMAID_VERSION=0.17.0
 
-RUN cargo install mdbook --version "${MDBOOK_VERSION}" --locked
-RUN cargo install mdbook-mermaid --version "${MDBOOK_MERMAID_VERSION}" --locked
+# Use cache mounts to persist cargo registry and build artifacts
+RUN --mount=type=cache,target=/usr/local/cargo/registry \
+    --mount=type=cache,target=/usr/local/cargo/git \
+    --mount=type=cache,target=/root/.cargo \
+    cargo install mdbook --version "${MDBOOK_VERSION}" --locked
+
+RUN --mount=type=cache,target=/usr/local/cargo/registry \
+    --mount=type=cache,target=/usr/local/cargo/git \
+    --mount=type=cache,target=/root/.cargo \
+    cargo install mdbook-mermaid --version "${MDBOOK_MERMAID_VERSION}" --locked
 
 FROM builder AS development
 
