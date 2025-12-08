@@ -32,22 +32,8 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5.0.0
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@e468171a9de216ec08956ac3ada2f0791b6bd435 # v3.11.1
-
-      - name: Build with Docker
-        uses: docker/build-push-action@263435318d21b8e681c14492fe198d362a7d2c83 # v6.18.0
-        with:
-          context: .
-          target: ci-builder
-          tags: mdbook-builder:latest
-          load: true
-          cache-from: type=gha,scope=mdbook
-          cache-to: type=gha,scope=mdbook,mode=max
-
-      - name: Run build
-        run: |
-          docker run --rm -v ${{ github.workspace }}:/data mdbook-builder:latest sh -c "mdbook-mermaid install . && mdbook build"
+      - name: Build mdbook
+        uses: ./.github/actions/build-mdbook
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4.0.0
