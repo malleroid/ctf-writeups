@@ -1,6 +1,8 @@
 services:
   mdbook:
-    build: .
+    build:
+      context: .
+      target: development
     container_name: mdbook
     volumes:
       - .:/book
