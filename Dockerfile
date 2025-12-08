@@ -7,8 +7,8 @@ ARG MDBOOK_VERSION=0.5.1
 # renovate: datasource=crate depName=mdbook-mermaid
 ARG MDBOOK_MERMAID_VERSION=0.17.0
 
-RUN cargo install mdbook --version "${MDBOOK_VERSION}" --locked \
-  && cargo install mdbook-mermaid --version "${MDBOOK_MERMAID_VERSION}" --locked
+RUN cargo install mdbook --version "${MDBOOK_VERSION}" --locked
+RUN cargo install mdbook-mermaid --version "${MDBOOK_MERMAID_VERSION}" --locked
 
 FROM builder AS development
 
