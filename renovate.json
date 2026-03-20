@@ -1,15 +1,10 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:best-practices",
-    ":semanticCommits"
-  ],
+  "extends": ["config:best-practices", ":semanticCommits"],
   "customManagers": [
     {
       "customType": "regex",
-      "managerFilePatterns": [
-        "/^Dockerfile$/"
-      ],
+      "managerFilePatterns": ["/^Dockerfile$/"],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)\\s+ARG \\S+_VERSION=(?<currentValue>.*)"
       ]
@@ -17,18 +12,17 @@
   ],
   "packageRules": [
     {
-      "matchDatasources": [
-        "crate"
-      ],
+      "matchDatasources": ["crate"],
       "groupName": "mdbook and plugins",
       "automerge": false,
-      "matchPackageNames": [
-        "/^mdbook/"
-      ]
+      "matchPackageNames": ["/^mdbook/"]
     }
   ],
-  "labels": [
-    "dependencies"
-  ],
-  "timezone": "Asia/Tokyo"
+  "labels": ["dependencies"],
+  "timezone": "Asia/Tokyo",
+  "vulnerabilityAlerts": {
+    "enabled": true,
+    "labels": ["dependencies", "security"]
+  }
 }
+
