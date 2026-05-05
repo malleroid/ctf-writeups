@@ -1,7 +1,7 @@
 #!/bin/bash
 
 OWNER="malleroid"
-REPO="ctf-writeups"
+REPO=""
 RULE_NAME="Main Branch Protection Rule"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -15,7 +15,7 @@ fi
 gh api \
   --method POST \
   -H "Accept: application/vnd.github+json" \
-  -H "X-GitHub-Api-Version: 2022-11-28" \
+  -H "X-GitHub-Api-Version: 2026-03-10" \
   /repos/$OWNER/$REPO/rulesets \
   --input "$CONFIG_FILE" \
   --verbose
