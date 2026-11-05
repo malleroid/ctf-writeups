@@ -1,4 +1,4 @@
-FROM rust:alpine@sha256:27cd9befd4a05d6f6eb407c3e28365f5092f008bfc5946207cca76ae5179ef23 AS builder
+FROM rust:alpine@sha256:f432d4b8663fbc50b29e33846bf6a1fb9f17f142023598899d641cddf57c6b22 AS builder
 
 # renovate: datasource=crate depName=mdbook
 ARG MDBOOK_VERSION=0.5.1
